@@ -97,7 +97,7 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
     case GET_MANY: {
       const query = {
-        filter: JSON.stringify({ id: params.ids }),
+        filter: { id: params.ids.join(',') },
       };
       url = `${apiUrl}/${resource}?${stringify(query)}`;
       break;
