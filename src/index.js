@@ -58,6 +58,8 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
         query.sort = `${prefix}${params.sort.field}`;
       }
 
+      query['filter[admin]'] = 1;
+
       url = `${apiUrl}/${resource}?${stringify(query)}`;
       break;
     }
@@ -119,6 +121,8 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
       // Add the reference id to the filter params.
       query[`filter[${params.target}]`] = params.id;
+
+      query['filter[admin]'] = 1;
 
       url = `${apiUrl}/${resource}?${stringify(query)}`;
       break;
