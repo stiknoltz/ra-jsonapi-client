@@ -35,6 +35,7 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
 
   const options = {
     headers: settings.headers,
+    withCredentials: settings.withCredentials,
   };
 
   switch (type) {
